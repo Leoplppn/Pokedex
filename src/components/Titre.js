@@ -1,14 +1,6 @@
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
+import styles from "../styles/Titre.styles";
 
 export default function Titre({ texte }) {
-  return <Text style={styles.titre}>{texte}</Text>;
+    return <Text style={styles.title}>{texte}</Text>;
 }
-
-const styles = StyleSheet.create({
-  titre: {
-    fontSize: 32,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 5,
-  },
-});
