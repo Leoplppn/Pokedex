@@ -1,8 +1,17 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    scrollView: {
+    container: {
+        flex: 1,
+    },
+    list: {
         padding: 16,
+        gap: 12,
+    },
+    row: {
+        gap: 12,
+    },
+    header: {
         gap: 12,
     },
     filterButton: {
