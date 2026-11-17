@@ -1,12 +1,14 @@
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { FlatList, Pressable, Text, View } from "react-native";
-import Aide from "../components/Aide";
-import PokemonCard from "../components/PokemonCard";
-import Titre from "../components/Titre";
-import POKEMONS from "../data/pokemons";
-import styles from "../styles/index.styles";
+import Aide from "../../components/Aide";
+import PokemonCard from "../../components/PokemonCard";
+import Titre from "../../components/Titre";
+import POKEMONS from "../../data/pokemons";
+import styles from "../../styles/index.styles";
 
 export default function Index() {
+  const router = useRouter();
   const [captured, setCaptured] = useState([]);
   const [capturesSeulement, setCapturesSeulement] = useState(false);
 
@@ -36,7 +38,7 @@ export default function Index() {
             <Aide />
             <Titre texte="Mon Pokédex" />
             <Text>
-              {POKEMONS.length} Pokémon · {captured.length} capturés
+              {POKEMONS.length} Pokémon {captured.length} capturés
             </Text>
             <Pressable
               style={styles.filterButton}
@@ -49,6 +51,11 @@ export default function Index() {
           </View>
         }
         renderItem={({ item }) => (
+                    <Pressable
+            style={styles.cardWrapper}
+            onPress={() => router.push(`/pokemon/${item.number}`)}
+          >
+
           <PokemonCard
             number={item.number}
             name={item.name}
@@ -56,6 +63,7 @@ export default function Index() {
             captured={captured.includes(item.number)}
             onCapture={() => capturer(item.number)}
           />
+          </Pressable>
         )}
       />
     </View>
