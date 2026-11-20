@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 export default function Titre({ texte }) {
     return(
@@ -6,3 +6,9 @@ export default function Titre({ texte }) {
     )
 }
 
+const styles = StyleSheet.create({
+    title: {
+        fontWeight: "bold",
+        fontSize: 16
+    }
+});
